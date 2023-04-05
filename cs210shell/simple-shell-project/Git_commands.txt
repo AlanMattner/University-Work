@@ -1,0 +1,70 @@
+// Notes on Git commands
+
+
+Overview of steps
+
+	1. Copy contents of the remote repository to your local repository
+	2. Configure a branch for developing a feature
+	3. Make any changes to the local repository e.g. adding classes
+	4. Copy the changes to the remote repository
+	9. Merge branches when ready
+
+
+
+Creating a Local Repo and Connecting with the Remote Repo
+
+	1. Navigate to a folder in a command line window which you wish to make a git repository and enter the command
+		git init
+
+	2. Now you need to let your local repository know about the remote one on GitLab. THis can be achieved by entering the following command:
+		git remote add <shortphrase> <<ssh_url>>
+
+
+
+Copying the Remote Repo
+	
+	1. git pull <shortphrase> <branch>
+
+	2. The '<shortphrase> <branch>' is necessary to identify the branch of the remote repository you wish to access
+
+	3. Best practice is to pull before you start working, to make sure you've got the most recent version of the code
+
+
+
+Setting up a branch
+
+	1. git checkout -b <branch_name>
+		Checkout moves git to the branch specified. -b creates a new branch. <branch_name> is the name of the branch.
+
+	2. git push <shortphrase> <branch_name>
+		Push will push the active branch back up to the repository specified by <branch_name> <shortphrase>
+
+	3. git checkout <branch_name>
+		This will simpy change which branch you are working on.
+
+
+
+Making a change in a local repository and pushing to the Remote Repo
+
+	1. Create a new file in the local directory
+
+	2. Identify the file to be included in the next commit (to be staged) by using the following command
+		git add <filename>
+
+	3. Then commit the changes
+		git commit -m "This is a comment describing what your commit includes"
+
+	4. Push the changes to the remote repo's <<branch_name>> branch
+		git push -u <shortphrase> <<branch_name>>
+
+		using -u means any future pull will attempt to bring in any commits from the remote branch
+
+
+
+Merging branches
+
+	1. Git checkout <branch_name>
+		move to the branch you want to merge into the target branch
+
+	2. Git merge <branch_name>
+		merge into <branch_name>
